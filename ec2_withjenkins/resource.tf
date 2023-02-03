@@ -20,7 +20,7 @@ resource "aws_security_group" "jenkins-sg" {
   } 
   ingress  {
     cidr_blocks = ["0.0.0.0/0"]
-    description = "Exposing the 8080 rules"
+    description = "Exposing the 22 rules"
     from_port = 22  
     protocol = "tcp"
     to_port = 22
