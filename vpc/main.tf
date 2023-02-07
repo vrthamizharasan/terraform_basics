@@ -5,6 +5,7 @@ locals {
 module "networking" {
     source = "./networking"
     vpc_cidrange  =  local.vpc_cidr
+    accessip = var.accessip
     pubnet_sn_count = 2
     prinet_sn_count = 2
     max_subnet = 20
