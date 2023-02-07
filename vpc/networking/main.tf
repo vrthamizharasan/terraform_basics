@@ -47,3 +47,32 @@ resource "aws_subnet" "private_subnet" {
     Name = "private-subnet-${count.index +1}"
   }
 }
+
+resource "aws_internet_gateway" "igw" {
+    vpc_id = aws_vpc.testvpc.id 
+}
+
+resource "aws_route_table" "public_route" {
+ vpc_id = aws_vpc.testvpc.id  
+      route {
+       cidr_block = "0.0.0.0/0"
+       gateway_id = aws_internet_gateway.igw.id
+  }
+}
+
+resource "aws_route_table" "private_route" {
+      vpc_id = aws_vpc.testvpc.id  
+}
+
+resource "aws_route_table_association" "public" {
+    count = var.pubnet_sn_count
+    route_table_id = aws_route_table.public_route.id 
+    subnet_id = aws_subnet.public_subnet.*.id[count.index]
+}
+
+resource "aws_route_table_association" "private" {
+    count = var.prinet_sn_count
+    route_table_id = aws_route_table.private_route.id  
+    subnet_id = aws_subnet.private_subnet.*.id[count.index]
+}
+
