@@ -15,11 +15,11 @@ module "networking" {
 module "database" {
     source = "./database"
     db_storage = 10
-    db_name = "mydb"
+    db_name = var.db_name
     db_engineversion = "5.7"
     db_instancetype = "db.t2.micro"
-    dbusername = "applread"
-    dbpassword = "password@123"
+    dbusername = var.dbusername
+    dbpassword = var.dbpassword
     snap = true 
     db_subnet_group_name = module.networking.rds_subnet_group_name[0]
     dbidentifier = "mydbid"
