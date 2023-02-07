@@ -15,3 +15,6 @@ variable "prinet_sn_count" {
 
 variable "max_subnet" {
 }
+
+variable "accessip" {
+}
