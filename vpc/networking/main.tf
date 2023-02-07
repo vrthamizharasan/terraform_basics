@@ -12,7 +12,9 @@ resource "aws_vpc" "testvpc" {
     tags = {
         Name = "testvpc-${random_integer.priority.id}"
     }
-
+    lifecycle {
+    create_before_destroy = true 
+  }
 }
 
 
