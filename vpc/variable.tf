@@ -3,20 +3,20 @@ variable "aws_region" {
 }
 
 variable "accessip" {
-    type = "string"
+    type = string
     default = "0.0.0.0/0"  
 }
 
 variable "dbusername" {
-  type = "string"
+  type = string
 }
 
 variable "dbpassword" {
-  type = "string"
+  type = string
   sensitive = true
 }
 
 variable "db_name" {
-  type = "string"
+  type = string
   sensitive = true 
 }
