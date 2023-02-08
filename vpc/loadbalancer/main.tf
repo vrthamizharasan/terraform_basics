@@ -4,7 +4,7 @@ resource "aws_lb" "public_lb" {
     internal = false
     subnets = var.publicsubnet
     security_groups = [var.public_sg]
-    idle_timeout = 400  
+    idle_timeout = 400
 }
 
 resource "aws_alb_target_group" "target_group" {
@@ -13,8 +13,8 @@ resource "aws_alb_target_group" "target_group" {
   protocol = var.tg_protocol #"HTTP"
   vpc_id = var.vpc_id
   lifecycle {
-    ignore_changes = [name]  //change in the name 
-    create_before_destroy = true  // to support the listerner 
+    ignore_changes = [name]  //change in the name
+    create_before_destroy = true  // to support the listerner
   }
   health_check {
     healthy_threshold = var.tg_heathythold #2
@@ -23,7 +23,6 @@ resource "aws_alb_target_group" "target_group" {
     timeout = var.tg_timeout #30
   }
 }
-
 
 resource "aws_lb_listener" "lb_listerner" {
     port = var.lister_port #80
