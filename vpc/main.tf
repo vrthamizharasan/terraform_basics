@@ -37,4 +37,6 @@ module "loadbalancer" {
   tg_unhealthythold = 2
   tg_interval = 3
   tg_timeout = 30  
+  lister_port = 80
+  lister_protocol = "HTTP"    
 }
