@@ -7,3 +7,5 @@ variable "tg_timeout" {}
 variable "vpc_id" { }
 variable "publicsubnet" { } 
 variable "public_sg" { }
+variable "lister_port" { }
+variable "lister_protocol"   { }
