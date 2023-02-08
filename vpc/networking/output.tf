@@ -9,3 +9,11 @@ output "rds_subnet_group_name" {
 output "vpc_id" {
   value = aws_vpc.testvpc.id 
 }
+
+output "public_sg" {
+    value = aws_security_group.public-sg["public"].id   
+}
+
+output "publicsubnet" {
+  value = aws_subnet.public_subnet.*.id 
+}
