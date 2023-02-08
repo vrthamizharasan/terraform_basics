@@ -30,4 +30,11 @@ module "loadbalancer" {
   source = "./loadbalancer"
   public_sg = module.networking.public_sg
   publicsubnet = module.networking.publicsubnet
-}        
+  vpc_id = module.networking.vpc_id
+  tg_port = 80
+  tg_protocol = "HTTP"
+  tg_heathythold = 2
+  tg_unhealthythold = 2
+  tg_interval = 3
+  tg_timeout = 30  
+}
