@@ -59,3 +59,16 @@ module "compute" {
     db_endpoint = module.database.db_endpoint
     target_group_arn = module.loadbalancer.target_group_arn
 }
+
+module "asg" {
+  source = "./asg"
+  asg_name = "testasg"
+  instance_type = "t2.micro"
+  public_sg = module.networking.publicsubnet
+  max_size = 3
+  min_size = 1
+  desired_capacity = 1
+  health_check_grace_period = 100
+  health_check_type = "EC2"
+}
+      
