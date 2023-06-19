@@ -13,7 +13,7 @@ variable "role_name" {
   default = "example-role"
 }
 
-variablee "vpc_id" {
+variable "vpc_id" {
   type = string
   default = "vpc-00507d09184a16a8d"
 
