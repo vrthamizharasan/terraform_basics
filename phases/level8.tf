@@ -103,8 +103,8 @@ security_group = {
 
 resource "aws_security_group" "mtc_sg" {
   for_each = var.security_group
-  name = for_each.value.name
-  description = for_each.value.description
+  name = each.value.name
+  description = each.value.description
   vpc_id = aws_vpc.mtc_vpc.id 
   dynamic "ingress" {
     for_each.value.ingress
